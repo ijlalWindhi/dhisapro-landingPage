@@ -1,9 +1,9 @@
-'use client';
-import Image from 'next/image';
-import React, { useState } from 'react';
-import { AlignJustify, X } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { NavMenu } from '@/constants/layout';
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
+import { AlignJustify, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { NavMenu } from "@/constants/layout";
 
 function Navbar() {
   // state
@@ -12,16 +12,16 @@ function Navbar() {
   // handler
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <header className="flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4 absolute w-full z-50 bg-white">
+    <header className="fixed flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4 w-full z-50 bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
       <Image
         src="/images/logo.svg"
         alt="Dhisa Production"
-        width={70}
-        height={70}
+        width={50}
+        height={50}
       />
       <div className="hidden sm:flex gap-4 md:gap-10 justify-center items-center">
         {NavMenu.map((menu) => (
@@ -48,15 +48,15 @@ function Navbar() {
       </div>
       <motion.div
         className={`absolute sm:hidden top-16 w-full left-0 py-4 bg-white shadow-sm`}
-        initial={{ y: '-100%', opacity: 0 }}
-        animate={{ y: showMenu ? 0 : '-100%', opacity: showMenu ? 1 : 0 }}
-        exit={{ y: '-100%', opacity: 0 }}
+        initial={{ y: "-100%", opacity: 0 }}
+        animate={{ y: showMenu ? 0 : "-100%", opacity: showMenu ? 1 : 0 }}
+        exit={{ y: "-100%", opacity: 0 }}
         hidden={!showMenu}
         transition={{ duration: 0.3 }}
       >
         <div
           className={
-            'flex sm:hidden flex-col gap-3 justify-center items-center'
+            "flex sm:hidden flex-col gap-3 justify-center items-center"
           }
         >
           {NavMenu.map((menu) => (

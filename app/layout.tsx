@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import './globals.css';
-import { METADATA } from '@/constants/metadata';
-import Navbar from '@/components/layout/navbar';
-import Footer from '@/components/layout/footer';
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import "./globals.css";
+import { METADATA } from "@/constants/metadata";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: METADATA.openGraph.url,
     siteName: METADATA.openGraph.siteName,
     locale: METADATA.openGraph.locale,
-    type: 'website',
+    type: "website",
   },
 };
 
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${poppins.className} bg-white`}>
+      <body className={`${poppins.className}`}>
         <Navbar />
         {children}
         <Footer />
