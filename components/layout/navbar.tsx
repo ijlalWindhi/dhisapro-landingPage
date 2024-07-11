@@ -3,11 +3,14 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { motion } from "framer-motion";
+
 import { NavMenu } from "@/constants/layout";
+import usePositionScreen from "@/hook/usePositionScreen";
 
 function Navbar() {
   // state
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const { isScrolled } = usePositionScreen({ threshold: 84 });
 
   // handler
   const scrollTo = (id: string) => {
@@ -16,7 +19,13 @@ function Navbar() {
   };
 
   return (
-    <header className="fixed flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4 w-full z-50 bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
+    <header
+      className={`fixed flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4 w-full z-50 ${
+        isScrolled
+          ? "bg-n-7"
+          : "bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10"
+      }`}
+    >
       <Image
         src="/images/logo.svg"
         alt="Dhisa Production"
@@ -47,7 +56,9 @@ function Navbar() {
         {showMenu ? <X size={24} /> : <AlignJustify size={24} />}
       </div>
       <motion.div
-        className={`absolute sm:hidden top-16 w-full left-0 py-4 bg-white shadow-sm`}
+        className={`absolute sm:hidden top-16 w-full left-0 py-4 bg-n-7 shadow-sm ${
+          showMenu ? "border-t border-white" : ""
+        }`}
         initial={{ y: "-100%", opacity: 0 }}
         animate={{ y: showMenu ? 0 : "-100%", opacity: showMenu ? 1 : 0 }}
         exit={{ y: "-100%", opacity: 0 }}

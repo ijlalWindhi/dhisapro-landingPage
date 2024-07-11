@@ -1,14 +1,15 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
+
 import Section from "./Section";
 import {
   BackgroundCircles,
   BottomLine,
 } from "@/components/fragments/landing-page/BackgroundCircles";
-import Image from "next/image";
 
 function Hero() {
-  // define variables
+  // variables
   const parallaxRef = useRef(null);
 
   return (
@@ -21,8 +22,10 @@ function Hero() {
     >
       <div className="container relative mx-auto" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1>Transform Ideas into Reality</h1>
-          <h2 className="h1 mb-6">
+          <h1 className="body-1 font-medium mb-2">
+            Transform Ideas into Reality
+          </h1>
+          <h2 className="h1 mb-6 md:mb-10">
             Digitize your business to achieve company goals with {` `}
             <span className="inline-block relative">
               Dhisa Production{" "}

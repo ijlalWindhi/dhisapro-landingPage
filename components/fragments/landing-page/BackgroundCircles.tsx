@@ -40,8 +40,10 @@ const Rings = () => {
 };
 
 export const BackgroundCircles = ({ parallaxRef }: IBackgroundCirclesProps) => {
+  // state
   const [mounted, setMounted] = useState(false);
 
+  // lifecycle
   useEffect(() => {
     setMounted(true);
   }, []);
