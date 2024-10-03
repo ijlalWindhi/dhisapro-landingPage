@@ -7,6 +7,9 @@ import {
   BackgroundCircles,
   BottomLine,
 } from "@/components/fragments/landing-page/BackgroundCircles";
+import { ScrollParallax } from "react-just-parallax";
+import Notification from "@/components/fragments/landing-page/Notification";
+import BadgeCursor from "@/components/fragments/landing-page/BadgeCursor";
 
 function Hero() {
   // variables
@@ -49,6 +52,36 @@ function Hero() {
           </Button> */}
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
+          <ScrollParallax isAbsolutelyPositioned>
+            <BadgeCursor
+              title="Web Development"
+              color="#a855f7"
+              textColor="white"
+              cursorPosition="top-right"
+            />
+
+            <BadgeCursor
+              title="Mobile Development"
+              color="blue-500"
+              textColor="white"
+              cursorPosition="top-left"
+            />
+
+            <BadgeCursor
+              title="UI/UX Design"
+              color="green-500"
+              textColor="white"
+              cursorPosition="bottom-right"
+            />
+
+            <BadgeCursor
+              title="Digital Marketing"
+              color="red-500"
+              textColor="black"
+              cursorPosition="bottom-left"
+            />
+          </ScrollParallax>
+
           <BackgroundCircles />
         </div>
       </div>

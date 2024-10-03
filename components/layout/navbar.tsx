@@ -20,12 +20,13 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4 w-full z-50 ${
+      className={`fixed w-full z-50 ${
         isScrolled
           ? "bg-n-7"
           : "bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10"
       }`}
     >
+      <div className="flex justify-between items-center gap-4 py-2 px-4 md:px-8 lg:px-20 xl:px-32 shadow-sm sm:py-4">
       <Image
         src="/images/logo.svg"
         alt="Dhisa Production"
@@ -52,18 +53,14 @@ function Navbar() {
       >
         Daftar
       </button>
+      </div>
       <div className="sm:hidden" onClick={() => setShowMenu(!showMenu)}>
         {showMenu ? <X size={24} /> : <AlignJustify size={24} />}
       </div>
-      <motion.div
-        className={`absolute sm:hidden top-16 w-full left-0 py-4 bg-n-7 shadow-sm ${
-          showMenu ? "border-t border-white" : ""
+      <div
+        className={`z-1 absolute sm:hidden transition duration-200 top-16 w-full left-0 py-4 bg-n-7 shadow-sm transform ${
+          showMenu ? "translate-y-0" : "-translate-y-[15rem]"
         }`}
-        initial={{ y: "-100%", opacity: 0 }}
-        animate={{ y: showMenu ? 0 : "-100%", opacity: showMenu ? 1 : 0 }}
-        exit={{ y: "-100%", opacity: 0 }}
-        hidden={!showMenu}
-        transition={{ duration: 0.3 }}
       >
         <div
           className={
@@ -89,7 +86,7 @@ function Navbar() {
             Daftar
           </button>
         </div>
-      </motion.div>
+      </div>
     </header>
   );
 }
